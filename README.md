@@ -47,3 +47,29 @@ Nest provides a level of abstraction above these common Node.js frameworks (Expr
 
 
 ## Content fixation study
+
+### nestjs CLI
+
+- This comand create a module file
+  
+```bash
+nest g module moduleName
+```
+
+- This comand create a controller file
+
+```bash
+nest g controller controllerName
+```
+- This comand create a service file
+
+```bash
+nest g service serviceName
+```
+- This comand create a CRUD with all those comands above
+and a litle more. 
+
+```bash
+nest g res crudName
+```
+
