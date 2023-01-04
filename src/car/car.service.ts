@@ -17,8 +17,13 @@ export class CarService {
     }
     return car;
   }
-  public async deleteCars(id) {
-    return;
+  public async deleteCarsById(id: number) {
+    const index = this.cars.findIndex((c) => c.id === id);
+    if (index === -1) {
+      throw new HttpException('Not found', 404);
+    }
+    this.cars.splice(index, 1);
+    return this.cars;
   }
   public async putCarsById(id) {
     return;
