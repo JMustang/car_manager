@@ -25,7 +25,16 @@ export class CarService {
     this.cars.splice(index, 1);
     return this.cars;
   }
-  public async putCarsById(id) {
-    return;
+  public async putCarsById(
+    id: number,
+    propertyName: string,
+    propertyValue: string,
+  ) {
+    const index = this.cars.findIndex((c) => c.id === id);
+    if (index === -1) {
+      throw new HttpException('Not found', 404);
+    }
+    this.cars[index][propertyName] = propertyValue;
+    return this.cars;
   }
 }
