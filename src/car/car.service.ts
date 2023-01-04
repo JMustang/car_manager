@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CARS } from './cars.mock';
 
 @Injectable()
@@ -10,7 +10,13 @@ export class CarService {
   public async postCars(car) {
     return this.cars.push(car);
   }
-  public async getCarById(id: number) {}
+  public async getCarById(id: number) {
+    const car = this.cars.find((c) => c.id === id);
+    if (car) {
+      throw new HttpException('Not found', 404);
+    }
+    return car;
+  }
   public async deleteCars(id) {
     return;
   }
