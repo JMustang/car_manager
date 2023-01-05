@@ -29,8 +29,10 @@ export class CarController {
     return this.carService.getCarById(id);
   }
 
-  @Delete()
-  public deleteCarById() {}
+  @Delete(':id')
+  public deleteCarById(@Param('id') id: number) {
+    return this.carService.deleteCarById(id);
+  }
 
   @Put()
   public putCarById() {}

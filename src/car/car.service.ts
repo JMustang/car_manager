@@ -17,7 +17,7 @@ export class CarService {
     }
     return car;
   }
-  public async deleteCarsById(id: number) {
+  public async deleteCarById(id: number) {
     const index = this.cars.findIndex((c) => c.id === id);
     if (index === -1) {
       throw new HttpException('Not found', 404);
