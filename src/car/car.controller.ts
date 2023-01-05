@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { CarService } from './car.service';
 import { CarDto } from './car.dto';
@@ -34,6 +35,10 @@ export class CarController {
     return this.carService.deleteCarById(id);
   }
 
-  @Put()
-  public putCarById() {}
+  @Put(':id')
+  public putCarById(@Param('id') id: number, @Query() query) {
+    const propertyName = query.property_name;
+    const propertyValue = query.property_value;
+    return this.carService.putCarById(id, propertyName, propertyValue);
+  }
 }

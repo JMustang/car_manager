@@ -25,7 +25,7 @@ export class CarService {
     this.cars.splice(index, 1);
     return this.cars;
   }
-  public async putCarsById(
+  public async putCarById(
     id: number,
     propertyName: string,
     propertyValue: string,
