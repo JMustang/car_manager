@@ -7,7 +7,7 @@ export class CarService {
   public async getCars() {
     return this.cars;
   }
-  public async postCars(car) {
+  public async postCar(car) {
     return this.cars.push(car);
   }
   public async getCarById(id: number) {
